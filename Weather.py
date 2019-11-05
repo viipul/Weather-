@@ -4,8 +4,7 @@ city = input('City Name :')
 url = api_address + city
 json_data = requests.get(url).json()
 format_add = json_data['base']
-print("Current Temp=",json_data['main']['temp']-273.15)
-print("Pressure=",json_data['main']['pressure'])
-print("Humidity=",json_data['main']['humidity'])
-print("MIN TEMP=",json_data['main']['temp_min']-273.15)
-print("MAX TEMP=",json_data['main']['temp_max']-273.15)
+float("{0:.2f}".format(json_data['main']['temp']-273.15))
+print("Current Temp={0:.1f}°C".format(json_data['main']['temp']-273.15))
+print("Pressure={0:d}mBar".format(json_data['main']['pressure']))
+print("Humidity={0:d}%".format(json_data['main']['humidity']))
